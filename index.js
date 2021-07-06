@@ -1,5 +1,4 @@
 const fs = require('fs');
-const { stringify } = require('querystring');
 const conn = require('./jsfiles/connection.js');
 
 conn.query(
