@@ -3,30 +3,30 @@ try {
   if (conn) {
     try {
       // import the function file
-      let Data = [];
-      const PlayersArray = [];
+      let data = [];
+      const playersArray = [];
       const fs = require('fs');
       // Read the data file using filestream
-      const CsvObject = fs.readFileSync('./datafiles/deliveries.csv');
-      if (CsvObject) {
+      const csvObject = fs.readFileSync('./datafiles/deliveries.csv');
+      if (csvObject) {
         // convert object data into string
-        const TempStringVariable = CsvObject.toString().split('\r');
-        Data = TempStringVariable[0].split(',');
+        const TempStringVariable = csvObject.toString().split('\r');
+        data = TempStringVariable[0].split(',');
         for (let i = 1; i < TempStringVariable.length; i++) {
-          Data.push(TempStringVariable[i].split(','));
+          data.push(TempStringVariable[i].split(','));
         }
-        for (let i = 22; i < Data.length - 1; i++) {
-          if (Data[i][6]) {
-            if (PlayersArray.includes(Data[i][6]));
+        for (let i = 22; i < data.length - 1; i++) {
+          if (data[i][6]) {
+            if (playersArray.includes(data[i][6]));
             else {
-              PlayersArray.push(Data[i][6]);
+              playersArray.push(data[i][6]);
             }
           }
         }
-        for (let i = 0; i < PlayersArray.length; i++) {
+        for (let i = 0; i < playersArray.length; i++) {
           const querry = {
             text: 'INSERT INTO players(player_id, name) VALUES($1, $2)',
-            values: [i + 1, PlayersArray[i]],
+            values: [i + 1, playersArray[i]],
           };
           // callback
           conn.query(querry, (err, res) => {

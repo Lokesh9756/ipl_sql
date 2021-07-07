@@ -1,23 +1,24 @@
 try {
   const conn = require('../connection.js');
+  const umpireArray = [];
   if (conn) {
     const fs = require('fs');
-    const CsvObject = fs.readFileSync('./datafiles/matches.csv');
+    const csvObject = fs.readFileSync('./datafiles/matches.csv');
     try {
-      if (CsvObject) {
+      if (csvObject) {
         // convert csv object into string
-        const TempArray = CsvObject.toString().split('\r');
-        const Data = TempArray[0].split(',');
-        for (let i = 1; i < TempArray.length; i++) {
-          Data.push(TempArray[i].split(','));
+        const tempArray = csvObject.toString().split('\r');
+        const data = tempArray[0].split(',');
+        for (let i = 1; i < tempArray.length; i++) {
+          data.push(tempArray[i].split(','));
         }
         // Array to store  teams
-        var UmpireArray = [];
-        for (let i = 18; i < Data.length - 1; i++) {
-          if (Data[i][15]) {
-            if (UmpireArray.includes(Data[i][15]));
+
+        for (let i = 18; i < data.length - 1; i++) {
+          if (data[i][15]) {
+            if (umpireArray.includes(data[i][15]));
             else {
-              UmpireArray.push(Data[i][15]);
+              umpireArray.push(data[i][15]);
             }
           }
         }
@@ -27,10 +28,10 @@ try {
     } catch (err) {
       console.log(err);
     }
-    for (let i = 0; i < UmpireArray.length; i++) {
+    for (let i = 0; i < umpireArray.length; i++) {
       const querry = {
         text: 'INSERT INTO umpires(umpire_id, name) VALUES($1, $2)',
-        values: [i + 1, UmpireArray[i]],
+        values: [i + 1, umpireArray[i]],
       };
       // callback
       conn.query(querry, (err, res) => {
@@ -47,4 +48,3 @@ try {
 } catch (err) {
   console.log(err);
 }
-console.log(UmpireArray);
