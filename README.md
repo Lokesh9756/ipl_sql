@@ -14,7 +14,7 @@ In thhis project two .csv file given we have to create postgres database and ins
 3. Print extra runs conceded per team in the year 2016 using sql query.
 4. Print top 10 economical bowlers in the year 2015 using sql query.
 #### ERD
-ER- Diagram show the relation between tables here we have have a screenshoot to show the relation between tables whic is used in this project database.
+ER- Diagram show the relation between tables here we  have a screenshoot to show the relation between tables whic is used in this project database.
 
 ![screenshot](./datafiles/erd.jpeg) 
 ## Technologies
