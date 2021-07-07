@@ -13,6 +13,10 @@ In thhis project two .csv file given we have to create postgres database and ins
 2. Print number of matches won per team per year in IPL using sql query.
 3. Print extra runs conceded per team in the year 2016 using sql query.
 4. Print top 10 economical bowlers in the year 2015 using sql query.
+#### ERD
+ER- Diagram show the relation between tables here we have have a screenshoot to show the relation between tables whic is used in this project database.
+
+![screenshot](/home/lokesh/Desktop/mountblueprojects/mbc-js-16-1-ipl-sql-Lokesh9756/datafiles/erd.jpeg) 
 ## Technologies
 ***
 A list of technologies used within the project:
@@ -33,6 +37,7 @@ $ sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -c
 $ wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
 $ sudo apt-get update
 $ sudo apt-get -y install postgresql
+$ npm install dotenv
 ```
 ## Collaboration
 ***
