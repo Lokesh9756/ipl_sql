@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/mountblue/mbc-js-16-1-ipl-sql-Lokesh9756#readme",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "pg": "^8.6.0"
   }
 }

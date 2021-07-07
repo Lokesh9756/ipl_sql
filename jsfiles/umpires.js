@@ -1,5 +1,5 @@
 try {
-  const conn = require('./connection.js');
+  const conn = require('../connection.js');
   if (conn) {
     const fs = require('fs');
     const CsvObject = fs.readFileSync('./datafiles/matches.csv');

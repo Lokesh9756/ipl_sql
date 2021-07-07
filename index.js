@@ -1,5 +1,5 @@
 const fs = require('fs');
-const conn = require('./jsfiles/connection.js');
+const conn = require('./connection.js');
 
 conn.query(
   'select season,count(season) as NoOfYear from matches group by season order by season',
@@ -127,6 +127,7 @@ conn.query(
     } else {
       console.log('count of number of winner per team in 2016:');
       console.table(res.rows);
+      // console.log(res.rows);
       const data = JSON.stringify(res.rows);
       fs.writeFileSync('./output/WinnerTeamCount2016.json', data);
     }

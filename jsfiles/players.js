@@ -1,5 +1,5 @@
 try {
-  const conn = require('./connection.js');
+  const conn = require('../connection.js');
   if (conn) {
     try {
       // import the function file

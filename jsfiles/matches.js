@@ -5,7 +5,7 @@ try {
   let i;
   let j;
   // To create connection
-  const conn = require('./connection.js');
+  const conn = require('../connection.js');
   // To read data from file
   if (conn) {
     const fs = require('fs');
